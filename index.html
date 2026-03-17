@@ -3,42 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabby Pickert — Actor</title>
-
-  <!-- Google Fonts -->
+  <title>Gabby Pickert — Director &amp; Performer</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- Floating petals background -->
 <div class="petals-bg" id="petalsBg"></div>
 
-<!-- ─── NAV ─── -->
+<!-- NAV -->
 <nav>
   <div class="nav-logo">G·P</div>
   <ul>
     <li><a href="#about">About</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#reel">Reel</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ─── HERO ─── -->
+<!-- HERO -->
 <section class="hero" id="home">
-
-  <!-- Background wreath decoration -->
   <svg class="hero-wreath" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
     <g>
-      <!-- Outer dashed ring -->
       <circle cx="250" cy="250" r="230" fill="none" stroke="#f4a0c0" stroke-width="1" stroke-dasharray="6 10" opacity="0.5"/>
-      <!-- Inner accent ring -->
       <circle cx="250" cy="250" r="190" fill="none" stroke="#fce97a" stroke-width="0.8" opacity="0.4"/>
-      <!-- Petal decoration dots -->
       <circle cx="250" cy="20"  r="6" fill="#e8679a" opacity="0.5"/>
       <circle cx="250" cy="480" r="6" fill="#e8679a" opacity="0.5"/>
       <circle cx="20"  cy="250" r="6" fill="#fce97a" opacity="0.5"/>
@@ -47,7 +35,6 @@
       <circle cx="427" cy="73"  r="5" fill="#f4a0c0" opacity="0.5"/>
       <circle cx="73"  cy="427" r="5" fill="#f4a0c0" opacity="0.5"/>
       <circle cx="427" cy="427" r="5" fill="#f4a0c0" opacity="0.5"/>
-      <!-- Floral text labels -->
       <text x="250" y="16"  text-anchor="middle" font-size="18" fill="#e8679a" opacity="0.6">✿</text>
       <text x="250" y="494" text-anchor="middle" font-size="18" fill="#e8679a" opacity="0.6">✿</text>
       <text x="14"  y="256" text-anchor="middle" font-size="18" fill="#fce97a" opacity="0.6">✿</text>
@@ -55,37 +42,40 @@
     </g>
   </svg>
 
-  <!-- Eyebrow label -->
-  <div class="hero-center">
-    <p class="hero-eyebrow">Actor · Performer · Artist</p>
+  <!-- Hero headshot top of page -->
+  <div class="hero-photo-wrap">
+    <img src="gabby-headshot.jpg" alt="Gabby Pickert" class="hero-photo" />
+    <div class="hero-photo-ring"></div>
   </div>
 
-  <!-- Scrolling name marquee -->
+  <!-- Eyebrow -->
+  <div class="hero-center">
+    <p class="hero-eyebrow">Director &amp; Performer · She/Her · Musical Theater</p>
+  </div>
+
+  <!-- Marquee: reversed direction, slightly tilted -->
   <div class="name-marquee-outer">
-    <div class="name-marquee-track" id="marqueeTrack">
-      <!-- Populated by script.js -->
-    </div>
+    <div class="name-marquee-track" id="marqueeTrack"></div>
   </div>
 
-  <!-- Tagline and CTA -->
+  <!-- Tagline + CTA -->
   <div class="hero-center">
-    <p class="hero-tagline">"Bringing characters to life<br />with heart and honesty."</p>
+    <p class="hero-tagline">"Bringing stories to life<br />on stage and behind the scenes."</p>
     <div class="hero-cta">
-      <a href="#reel" class="btn btn-primary">Watch Reel</a>
+      <a href="#about" class="btn btn-primary">Meet Gabby</a>
       <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
   </div>
-
 </section>
 
-<!-- ─── ABOUT ─── -->
+<!-- ABOUT -->
 <section class="about-bg" id="about">
   <div class="section-inner">
     <div class="about-grid">
 
       <div class="about-photo-wrap reveal">
         <div class="about-photo-frame">
-          <div class="photo-placeholder">✿</div>
+          <img src="gabby-photo-1.jpg" alt="Gabby Pickert" class="about-photo-img" />
         </div>
         <svg class="about-deco" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="44" fill="none" stroke="#e8679a" stroke-width="1.5" stroke-dasharray="3 6"/>
@@ -101,25 +91,21 @@
           <span style="font-size:1.4rem">🌸</span>
           <div class="divider-line"></div>
         </div>
-        <p>A stage and screen actor based in New York City, I've spent the last decade telling stories that make audiences laugh, cry, and question everything in between.</p>
-        <p>Trained at the Atlantic Theater Company and the Royal Academy of Dramatic Art, I bring a rigorous physical and emotional approach to every role — from classical Shakespeare to contemporary indie film.</p>
-        <p>Off-stage, you'll find me in my garden, reading scripts under cherry blossoms, or workshopping new plays with the community theater collective I co-founded.</p>
+        <p>A director and performer based in New York, I'm currently pursuing my BFA in Musical Theater at Long Island University (Class of 2026), where I've had the joy of working alongside incredible mentors and collaborators.</p>
+        <p>My work spans directing, assistant directing, performance, and music direction — from originating roles in new works to leading workshops and showcases. I'm passionate about telling stories that move people and creating spaces where artists can do their best work.</p>
+        <p>Most recently I've been working on <em>Tick Tick Boom</em>, <em>Feels Like the First Time</em> directed by Adam Pascal, and have performed as Cinderella in <em>Into the Woods</em> and Maureen in <em>Rent</em>.</p>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-num">40+</span>
-            <span class="stat-label">Productions</span>
+            <span class="stat-num">BFA</span>
+            <span class="stat-label">Musical Theater</span>
           </div>
           <div class="stat">
-            <span class="stat-num">12</span>
-            <span class="stat-label">Awards</span>
+            <span class="stat-num">LIU</span>
+            <span class="stat-label">Class of 2026</span>
           </div>
           <div class="stat">
-            <span class="stat-num">10</span>
-            <span class="stat-label">Years</span>
-          </div>
-          <div class="stat">
-            <span class="stat-num">3</span>
-            <span class="stat-label">Countries</span>
+            <span class="stat-num">Dir</span>
+            <span class="stat-label">&amp; Performer</span>
           </div>
         </div>
       </div>
@@ -128,191 +114,113 @@
   </div>
 </section>
 
-<!-- ─── PORTFOLIO ─── -->
-<section class="portfolio-bg" id="portfolio">
-  <div class="section-inner">
-    <p class="section-label reveal">Featured Work</p>
-    <h2 class="section-title reveal">Stage &amp; <em>Screen</em></h2>
-    <div class="portfolio-grid">
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-1">
-          <span class="card-label">Film</span>
-          🌺
-        </div>
-        <div class="card-body">
-          <div class="card-title">The Blossoming Hour</div>
-          <div class="card-sub">Lead · Sundance Selection 2024</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-2">
-          <span class="card-label">Theater</span>
-          🌹
-        </div>
-        <div class="card-body">
-          <div class="card-title">Hedda Gabler</div>
-          <div class="card-sub">Title Role · Lincoln Center</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-3">
-          <span class="card-label">TV</span>
-          🌼
-        </div>
-        <div class="card-body">
-          <div class="card-title">Golden Meridian</div>
-          <div class="card-sub">Recurring · HBO Series</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-4">
-          <span class="card-label">Film</span>
-          🌸
-        </div>
-        <div class="card-body">
-          <div class="card-title">Petal &amp; Thorn</div>
-          <div class="card-sub">Lead · Toronto Int'l Festival</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-5">
-          <span class="card-label">Theater</span>
-          🌷
-        </div>
-        <div class="card-body">
-          <div class="card-title">A Midsummer Night's Dream</div>
-          <div class="card-sub">Titania · Shakespeare in the Park</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card reveal">
-        <div class="card-thumb card-thumb-6">
-          <span class="card-label">Short Film</span>
-          💐
-        </div>
-        <div class="card-body">
-          <div class="card-title">After the Rain</div>
-          <div class="card-sub">Lead · Tribeca Award Winner</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── REEL ─── -->
-<section class="reel-bg" id="reel">
-  <div class="section-inner">
-    <p class="section-label reveal">Showreel</p>
-    <h2 class="section-title reveal">Watch My <em style="color:#f9d84b">Reel</em></h2>
-    <div class="reel-embed reveal">
-      <div class="reel-play" title="Play Reel">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-          <path d="M8 5v14l11-7z"/>
-        </svg>
-      </div>
-      <div class="reel-overlay-text">2024 Demo Reel · 3:42</div>
-      <!-- Decorative petal blobs -->
-      <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.06;pointer-events:none" viewBox="0 0 800 450">
-        <circle cx="100" cy="80"  r="60" fill="#f4a0c0"/>
-        <circle cx="700" cy="370" r="80" fill="#fce97a"/>
-        <circle cx="400" cy="50"  r="40" fill="#f4a0c0"/>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ─── RESUME ─── -->
+<!-- RESUME -->
 <section class="resume-bg" id="resume">
   <div class="section-inner">
     <p class="section-label reveal">Credits &amp; Training</p>
     <h2 class="section-title reveal">Full <em>Resume</em></h2>
+
+    <div class="resume-download reveal">
+      <a href="gabby-resume.pdf" download class="btn btn-primary">⬇ Download PDF Resume</a>
+    </div>
+
     <div class="resume-cols">
 
       <div class="reveal">
-        <div class="resume-section-title">🎭 Theater</div>
+        <div class="resume-section-title">🎬 Directing</div>
         <div class="resume-item">
-          <div class="resume-role">Hedda Gabler</div>
-          <div class="resume-meta">Title Role — Lincoln Center, 2024</div>
-          <div class="resume-detail">Dir. Anya Volkov</div>
+          <div class="resume-role">Tick Tick Boom <span class="resume-badge">Upcoming</span></div>
+          <div class="resume-meta">LIU Post Advanced Directing · 2026</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">A Midsummer Night's Dream</div>
-          <div class="resume-meta">Titania — Shakespeare in the Park, 2023</div>
-          <div class="resume-detail">Dir. Marcus Webb</div>
+          <div class="resume-role">Pitch Perfect on Stage</div>
+          <div class="resume-meta">Emerging Student Theatre Artists · 2024</div>
+        </div>
+
+        <div class="resume-section-title" style="margin-top:2.2rem">🪄 Assistant Directing</div>
+        <div class="resume-item">
+          <div class="resume-role">Feels Like the First Time <span class="resume-badge">Upcoming</span></div>
+          <div class="resume-meta">LIU Post · Dir. Adam Pascal · 2026</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">Three Sisters</div>
-          <div class="resume-meta">Masha — Atlantic Theater, 2022</div>
-          <div class="resume-detail">Dir. Claire Fontaine</div>
+          <div class="resume-role">Feels Like the First Time (Workshop)</div>
+          <div class="resume-meta">LIU Post · Dir. Adam Pascal · 2025</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">The Glass Menagerie</div>
-          <div class="resume-meta">Amanda — Roundabout Theater, 2021</div>
-          <div class="resume-detail">Dir. James Hartley</div>
+          <div class="resume-role">LIU Post First Year Showcase</div>
+          <div class="resume-meta">Dir. Natalie Wisdom · 2025</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Seussical the Musical Jr.</div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison · 2021</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Descendants Jr.</div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison · 2021</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Aladdin Jr.</div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison · 2020</div>
         </div>
       </div>
 
       <div class="reveal">
-        <div class="resume-section-title">🎬 Film &amp; TV</div>
+        <div class="resume-section-title">🎤 Select Performance</div>
         <div class="resume-item">
-          <div class="resume-role">The Blossoming Hour</div>
-          <div class="resume-meta">Lead — Sundance Official Selection, 2024</div>
-          <div class="resume-detail">Dir. Soo-Yeon Park</div>
+          <div class="resume-role">Wig: A Retro Review — <em>Music Director</em></div>
+          <div class="resume-meta">Emerging Student Theatre Artists · 2023</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">Golden Meridian (HBO)</div>
-          <div class="resume-meta">Recurring — 2022–2023</div>
-          <div class="resume-detail">Creator: David Ellroy</div>
+          <div class="resume-role">Into the Woods — <em>Cinderella</em></div>
+          <div class="resume-meta">LIU Post · Dir. Jerome Vivona</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">Petal &amp; Thorn</div>
-          <div class="resume-meta">Lead — TIFF, 2023</div>
-          <div class="resume-detail">Dir. Elina Vasquez</div>
+          <div class="resume-role">Rent — <em>Maureen</em></div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">After the Rain</div>
-          <div class="resume-meta">Lead — Tribeca Award Winner, 2022</div>
-          <div class="resume-detail">Dir. Thomas Greig</div>
+          <div class="resume-role">Young Frankenstein — <em>Inga</em></div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison</div>
         </div>
-      </div>
+        <div class="resume-item">
+          <div class="resume-role">Matilda — <em>Dance Captain</em></div>
+          <div class="resume-meta">Alpine Theatre Project · Chor. Brian Marcolm</div>
+        </div>
 
-      <div class="reveal">
-        <div class="resume-section-title">📚 Training</div>
+        <div class="resume-section-title" style="margin-top:2.2rem">📚 Education &amp; Training</div>
         <div class="resume-item">
-          <div class="resume-role">MFA Acting</div>
-          <div class="resume-meta">Royal Academy of Dramatic Art, London</div>
+          <div class="resume-role">BFA Musical Theater — Long Island University</div>
+          <div class="resume-meta">Class of 2026</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">Atlantic Theater Company</div>
-          <div class="resume-meta">Advanced Acting Conservatory, NYC</div>
+          <div class="resume-role">Acting</div>
+          <div class="resume-detail">Eric Jordan Young · Tina Mitchell · Jillian Courtney · Leon Ingulsrud</div>
         </div>
         <div class="resume-item">
-          <div class="resume-role">Meisner Technique</div>
-          <div class="resume-meta">Joanna Merlin Studios</div>
+          <div class="resume-role">Shakespeare</div>
+          <div class="resume-detail">Valerie Clayman Pye</div>
         </div>
-      </div>
+        <div class="resume-item">
+          <div class="resume-role">Advanced Directing</div>
+          <div class="resume-detail">Jason Jacobs</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Advanced Acting TA</div>
+          <div class="resume-detail">Tina Mitchell — Suzuki · Viewpoints · Laban · Stanislavsky</div>
+        </div>
 
-      <div class="reveal">
-        <div class="resume-section-title">✨ Skills</div>
-        <div class="skills-chips">
-          <span class="chip">Stage Combat</span>
-          <span class="chip">Shakespeare</span>
-          <span class="chip">Meisner</span>
-          <span class="chip">Classical Voice</span>
-          <span class="chip">Dance: Ballet</span>
-          <span class="chip">Dance: Contemporary</span>
-          <span class="chip">British RP Dialect</span>
-          <span class="chip">Southern US</span>
-          <span class="chip">Horseback Riding</span>
-          <span class="chip">Piano — Grade 8</span>
-          <span class="chip">French</span>
-          <span class="chip">Italian</span>
+        <div class="resume-section-title" style="margin-top:2.2rem">🌟 Additional Credits</div>
+        <div class="resume-item">
+          <div class="resume-role">Million Dollar Quartet — <em>Asst. Stage Manager</em></div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Betsi Morrison</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Hound of the Baskervilles — <em>Production Assistant</em></div>
+          <div class="resume-meta">Alpine Theatre Project · Dir. Simon Needham</div>
+        </div>
+        <div class="resume-item">
+          <div class="resume-role">Box Office Sales Associate</div>
+          <div class="resume-meta">Tilles Center for the Performing Arts</div>
         </div>
       </div>
 
@@ -320,7 +228,7 @@
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- CONTACT -->
 <section class="contact-bg" id="contact">
   <div class="section-inner contact-inner">
     <p class="section-label reveal">Say Hello</p>
@@ -331,33 +239,24 @@
       <div class="divider-line" style="max-width:120px"></div>
     </div>
     <p class="contact-text reveal">
-      Available for film, television, theater, and commercial projects.<br />
-      Represented by Bloom Talent Agency, New York.
+      Available for directing, performing, and collaborative theater projects.<br />
+      BFA Musical Theater · Long Island University · Class of 2026
     </p>
-    <a href="mailto:hello@gabbypickert.com" class="btn btn-primary reveal" style="display:inline-block">
-      hello@gabbypickert.com
+    <a href="mailto:gabbypickert@gmail.com" class="btn btn-primary reveal" style="display:inline-block">
+      gabbypickert@gmail.com
     </a>
     <div class="contact-links reveal">
-      <a href="#" class="contact-link">
-        <span class="contact-icon">📷</span> @gabbypickert
-      </a>
-      <a href="#" class="contact-link">
-        <span class="contact-icon">🎬</span> IMDb Profile
-      </a>
-      <a href="#" class="contact-link">
-        <span class="contact-icon">🌐</span> Bloom Talent Agency
+      <a href="gabby-resume.pdf" download class="contact-link">
+        <span class="contact-icon">📄</span> Download Resume
       </a>
     </div>
   </div>
 </section>
 
-<!-- ─── FOOTER ─── -->
 <footer>
-  Crafted with <span>✿</span> by Gabby Pickert · 2024
+  Crafted with <span>✿</span> by Gabby Pickert · 2025
 </footer>
 
-<!-- JavaScript -->
 <script src="script.js"></script>
-
 </body>
 </html>

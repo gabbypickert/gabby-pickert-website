@@ -3,7 +3,6 @@
    styles.css
 ═══════════════════════════════════════════ */
 
-/* ─── VARIABLES ─── */
 :root {
   --pink-deep: #e8679a;
   --pink-mid: #f4a0c0;
@@ -20,9 +19,7 @@
   --text-light: #9c7080;
 }
 
-/* ─── RESET & BASE ─── */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -32,7 +29,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── FLOATING PETALS BACKGROUND ─── */
+/* ─── FLOATING PETALS ─── */
 .petals-bg {
   position: fixed;
   inset: 0;
@@ -116,16 +113,14 @@ nav a:hover::after { width: 100%; }
   padding: 7rem 2rem 5rem;
   z-index: 1;
   overflow: hidden;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
-/* Giant floral wreath SVG behind hero */
 .hero-wreath {
   position: absolute;
   width: min(700px, 90vw);
   height: min(700px, 90vw);
-  top: 50%;
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   animation: wreathSpin 60s linear infinite;
   opacity: 0.22;
@@ -137,22 +132,52 @@ nav a:hover::after { width: 100%; }
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* ─── MARQUEE NAME ─── */
+/* ─── HERO PHOTO ─── */
+.hero-photo-wrap {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.2s forwards;
+}
+
+.hero-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 32px rgba(232, 103, 154, 0.35);
+}
+
+.hero-photo-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px dashed var(--pink-mid);
+  animation: spinDeco 20s linear infinite;
+}
+
+/* ─── MARQUEE NAME (reversed right→left → now scrolls right, tilted) ─── */
 .name-marquee-outer {
   width: 100vw;
   overflow: hidden;
   position: relative;
   z-index: 2;
-  padding: 0.6rem 0;
-  margin-bottom: 0.5rem;
+  padding: 0.4rem 0;
+  margin-bottom: 0.2rem;
+  /* Slight upward tilt */
+  transform: rotate(-2.5deg);
+  transform-origin: center center;
 }
 
-/* Left fade — name appears from left edge */
+/* Left fade */
 .name-marquee-outer::before {
   content: '';
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 22vw;
+  width: 18vw;
   background: linear-gradient(to right, var(--pink-blush) 0%, transparent 100%);
   z-index: 4;
   pointer-events: none;
@@ -163,7 +188,7 @@ nav a:hover::after { width: 100%; }
   content: '';
   position: absolute;
   right: 0; top: 0; bottom: 0;
-  width: 14vw;
+  width: 18vw;
   background: linear-gradient(to left, var(--pink-blush) 0%, transparent 100%);
   z-index: 4;
   pointer-events: none;
@@ -172,7 +197,13 @@ nav a:hover::after { width: 100%; }
 .name-marquee-track {
   display: flex;
   white-space: nowrap;
-  animation: marqueeScroll 9s linear infinite;
+  /* scrollRight = translateX from -50% to 0 */
+  animation: marqueeScrollRight 9s linear infinite;
+}
+
+@keyframes marqueeScrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 .name-marquee-chunk {
@@ -201,11 +232,7 @@ nav a:hover::after { width: 100%; }
   flex-shrink: 0;
 }
 
-@keyframes marqueeScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
+/* ─── HERO CENTER (eyebrow, tagline, cta) ─── */
 .hero-center {
   display: flex;
   flex-direction: column;
@@ -220,7 +247,7 @@ nav a:hover::after { width: 100%; }
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--pink-deep);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
   opacity: 0;
   animation: fadeUp 0.9s 0.5s forwards;
 }
@@ -230,13 +257,13 @@ nav a:hover::after { width: 100%; }
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-style: italic;
   color: var(--text-mid);
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   opacity: 0;
   animation: fadeUp 0.9s 1.1s forwards;
 }
 
 .hero-cta {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -287,7 +314,7 @@ nav a:hover::after { width: 100%; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ─── SECTIONS (SHARED) ─── */
+/* ─── SHARED SECTION ─── */
 section {
   position: relative;
   z-index: 1;
@@ -321,7 +348,6 @@ section {
   color: var(--pink-deep);
 }
 
-/* Divider with flower */
 .divider {
   display: flex;
   align-items: center;
@@ -347,29 +373,22 @@ section {
   align-items: center;
 }
 
-.about-photo-wrap {
-  position: relative;
-}
+.about-photo-wrap { position: relative; }
 
 .about-photo-frame {
   position: relative;
   border-radius: 48% 52% 60% 40% / 40% 55% 45% 60%;
   overflow: hidden;
   aspect-ratio: 3/4;
-  background: linear-gradient(145deg, var(--pink-mid), var(--yellow-warm));
   box-shadow: 0 24px 60px rgba(232, 103, 154, 0.25);
 }
 
-.photo-placeholder {
+.about-photo-img {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 6rem;
-  color: rgba(255,255,255,0.6);
-  background: linear-gradient(160deg, #f4a0c0 0%, #fce97a 100%);
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .about-deco {
@@ -395,6 +414,11 @@ section {
   margin-bottom: 1.2rem;
 }
 
+.about-text p em {
+  color: var(--pink-deep);
+  font-style: italic;
+}
+
 .about-stats {
   display: flex;
   gap: 2.5rem;
@@ -406,93 +430,27 @@ section {
 
 .stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: var(--pink-deep);
   display: block;
   line-height: 1;
 }
 
 .stat-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-light);
   margin-top: 0.3rem;
 }
 
-/* ─── PORTFOLIO ─── */
-.portfolio-bg {
-  background: var(--pink-blush);
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.8rem;
-}
-
-.portfolio-card {
-  border-radius: 20px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 8px 32px rgba(232, 103, 154, 0.1);
-  transition: transform 0.35s, box-shadow 0.35s;
-  cursor: pointer;
-}
-
-.portfolio-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(232, 103, 154, 0.22);
-}
-
-.card-thumb {
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3.5rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-thumb-1 { background: linear-gradient(135deg, #f4a0c0, #fce97a); }
-.card-thumb-2 { background: linear-gradient(135deg, #e8679a, #f4a0c0); }
-.card-thumb-3 { background: linear-gradient(135deg, #fce97a, #8ab87a); }
-.card-thumb-4 { background: linear-gradient(135deg, #fce97a, #f4a0c0); }
-.card-thumb-5 { background: linear-gradient(135deg, #c47a60, #fce97a); }
-.card-thumb-6 { background: linear-gradient(135deg, #f4a0c0, #6a9e5a); }
-
-.card-label {
-  position: absolute;
-  top: 12px; left: 14px;
-  background: rgba(255,255,255,0.9);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--pink-deep);
-  padding: 3px 10px;
-  border-radius: 100px;
-  font-weight: 500;
-}
-
-.card-body { padding: 1.4rem; }
-
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
-  color: var(--text-dark);
-  margin-bottom: 0.3rem;
-}
-
-.card-sub {
-  font-size: 0.82rem;
-  color: var(--text-light);
-  font-style: italic;
-}
-
 /* ─── RESUME ─── */
 .resume-bg {
   background: linear-gradient(160deg, #fff0f5 0%, #fffbe6 100%);
+}
+
+.resume-download {
+  margin-bottom: 3rem;
 }
 
 .resume-cols {
@@ -503,9 +461,9 @@ section {
 
 .resume-section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
   padding-bottom: 0.6rem;
   border-bottom: 2px solid var(--yellow-bright);
   display: flex;
@@ -513,12 +471,22 @@ section {
   gap: 0.6rem;
 }
 
-.resume-item { margin-bottom: 1.4rem; }
+.resume-item { margin-bottom: 1.3rem; }
 
 .resume-role {
   font-weight: 500;
   color: var(--text-dark);
   font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.resume-role em {
+  font-style: italic;
+  color: var(--pink-deep);
+  font-weight: 400;
 }
 
 .resume-meta {
@@ -531,72 +499,19 @@ section {
 .resume-detail {
   font-size: 0.82rem;
   color: var(--text-light);
+  line-height: 1.5;
 }
 
-.skills-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.chip {
-  background: var(--pink-soft);
-  border: 1px solid var(--pink-mid);
-  color: var(--pink-deep);
-  font-size: 0.78rem;
-  padding: 4px 14px;
+.resume-badge {
+  background: var(--yellow-bright);
+  color: var(--text-dark);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 9px;
   border-radius: 100px;
-  font-weight: 500;
-}
-
-/* ─── REEL ─── */
-.reel-bg {
-  background: var(--text-dark);
-}
-
-.reel-bg .section-label { color: var(--yellow-bright); }
-.reel-bg .section-title { color: #fff; }
-
-.reel-embed {
-  background: #1a0e14;
-  border-radius: 20px;
-  aspect-ratio: 16/9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid rgba(244, 160, 192, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.reel-play {
-  width: 80px; height: 80px;
-  background: var(--pink-deep);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 60px rgba(232, 103, 154, 0.5);
-  z-index: 2;
-}
-
-.reel-play:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 100px rgba(232, 103, 154, 0.8);
-}
-
-.reel-play svg { margin-left: 5px; }
-
-.reel-overlay-text {
-  position: absolute;
-  bottom: 2rem; left: 2rem;
-  color: rgba(255,255,255,0.5);
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.1rem;
+  font-style: normal;
 }
 
 /* ─── CONTACT ─── */
@@ -685,4 +600,5 @@ footer span { color: var(--pink-mid); }
   nav ul { gap: 1.5rem; }
   .about-grid { grid-template-columns: 1fr; }
   .resume-cols { grid-template-columns: 1fr; }
+  .name-marquee-outer { transform: rotate(-1.5deg); }
 }

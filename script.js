@@ -25,8 +25,8 @@ function createPetal() {
 for (let i = 0; i < 22; i++) createPetal();
 
 /* ─── MARQUEE NAME BUILD ─── */
-// Fills the marquee track with duplicated name chunks for a seamless loop.
-// The track animates to -50% translateX, so we need exactly 2 identical halves.
+// Scrolls right-to-left reversed: animation goes from -50% → 0%
+// We still need 2 identical halves (8 chunks = 4 per half) for the seamless loop.
 const track = document.getElementById('marqueeTrack');
 const separators = ['🌸', '🌺', '🌼', '✿', '🌷'];
 const nameHTML = `<span class="name-text">Gabby <em>Pickert</em></span>`;
@@ -51,9 +51,3 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 reveals.forEach(el => revealObserver.observe(el));
-
-/* ─── REEL PLAY BUTTON ─── */
-document.querySelector('.reel-play').addEventListener('click', () => {
-  // Replace the alert below with your actual video embed or lightbox logic
-  alert('🎬 Add your reel video URL here!');
-});
