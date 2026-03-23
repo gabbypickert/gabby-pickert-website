@@ -3,26 +3,27 @@
    styles.css
 ═══════════════════════════════════════════ */
 
-/* ─── VARIABLES ─── */
 :root {
   --pink-deep: #e8679a;
   --pink-mid: #f4a0c0;
   --pink-soft: #fce4ee;
   --pink-blush: #fff0f5;
   --yellow-bright: #f9d84b;
-  --yellow-warm: #fce97a;
   --yellow-pale: #fffbe6;
   --text-dark: #2a1a22;
   --text-mid: #5c3a4a;
   --text-light: #9c7080;
 }
 
-/* ─── RESET & BASE ─── */
+/* ─── FONTS ─── */
+/* Gravitas One → ONLY the hero title (Gabby Pickert) */
+/* Bricolage Grotesque → everything else */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   background: var(--pink-blush);
   color: var(--text-dark);
   overflow-x: hidden;
@@ -37,13 +38,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.2rem 3rem;
-  background: rgba(252, 228, 238, 0.85);
+  background: rgba(255, 240, 245, 0.75);
   backdrop-filter: blur(14px);
-  border-bottom: 1.5px solid rgba(232, 103, 154, 0.2);
+  border-bottom: 1.5px solid rgba(232, 103, 154, 0.15);
 }
 
 .nav-logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Gravitas One', serif;
   font-size: 1.3rem;
   color: var(--pink-deep);
   letter-spacing: 0.05em;
@@ -84,14 +85,13 @@ nav a:hover::after { width: 100%; }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 7rem 2rem 5rem;
+  align-items: stretch;
+  justify-content: flex-end;
   z-index: 1;
   overflow: hidden;
-  gap: 0.8rem;
 }
+
+.hero-spacer { flex: 1; }
 
 /* Full-bleed background photo */
 .hero-bg-photo {
@@ -113,9 +113,10 @@ nav a:hover::after { width: 100%; }
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 240, 245, 0.45) 0%,
-    rgba(255, 240, 245, 0.65) 60%,
-    rgba(255, 240, 245, 0.92) 100%
+    rgba(255, 240, 245, 0.15) 0%,
+    rgba(255, 240, 245, 0.05) 30%,
+    rgba(255, 240, 245, 0.05) 50%,
+    rgba(42, 26, 34, 0.55) 100%
   );
 }
 
@@ -125,29 +126,28 @@ nav a:hover::after { width: 100%; }
   overflow: hidden;
   position: relative;
   z-index: 2;
-  padding: 0.4rem 0;
+  padding: 0.3rem 0;
   transform: rotate(-2.5deg);
   transform-origin: center center;
+  margin-bottom: 0.5rem;
 }
 
-/* Left fade */
 .name-marquee-outer::before {
   content: '';
   position: absolute;
   left: 0; top: 0; bottom: 0;
-  width: 18vw;
-  background: linear-gradient(to right, var(--pink-blush) 0%, transparent 100%);
+  width: 14vw;
+  background: linear-gradient(to right, rgba(42,26,34,0.4) 0%, transparent 100%);
   z-index: 4;
   pointer-events: none;
 }
 
-/* Right fade */
 .name-marquee-outer::after {
   content: '';
   position: absolute;
   right: 0; top: 0; bottom: 0;
-  width: 18vw;
-  background: linear-gradient(to left, var(--pink-blush) 0%, transparent 100%);
+  width: 14vw;
+  background: linear-gradient(to left, rgba(42,26,34,0.4) 0%, transparent 100%);
   z-index: 4;
   pointer-events: none;
 }
@@ -170,17 +170,19 @@ nav a:hover::after { width: 100%; }
   padding-right: 4rem;
 }
 
+/* GRAVITAS ONE — exclusively for the scrolling name */
 .name-marquee-chunk .name-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Gravitas One', serif;
   font-size: clamp(3.4rem, 9vw, 7.5rem);
   line-height: 1;
-  color: var(--pink-deep);
-  letter-spacing: 0.04em;
+  color: #fff;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .name-marquee-chunk .name-text em {
   font-style: italic;
-  color: var(--text-dark);
+  color: var(--pink-mid);
 }
 
 .name-marquee-chunk .name-sep {
@@ -189,50 +191,37 @@ nav a:hover::after { width: 100%; }
   border-radius: 50%;
   background: var(--pink-mid);
   flex-shrink: 0;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
-/* ─── HERO CENTER ─── */
-.hero-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 3;
+/* ─── HERO BOTTOM BAR ─── */
+.hero-bottom-bar {
   position: relative;
-}
-
-.hero-eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--pink-deep);
-  opacity: 0;
-  animation: fadeUp 0.9s 0.4s forwards;
-}
-
-.hero-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-style: italic;
-  color: var(--text-mid);
-  margin-top: 0.8rem;
-  opacity: 0;
-  animation: fadeUp 0.9s 1s forwards;
-}
-
-.hero-cta {
-  margin-top: 1.8rem;
+  z-index: 3;
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  opacity: 0;
-  animation: fadeUp 0.9s 1.3s forwards;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.2rem 3rem 2rem;
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* GRAVITAS ONE for hero title */
+.hero-title-text {
+  font-family: 'Gravitas One', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: #fff;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  line-height: 1;
+}
+
+.hero-role-text {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
 }
 
 /* ─── BUTTONS ─── */
@@ -240,14 +229,15 @@ nav a:hover::after { width: 100%; }
   display: inline-block;
   padding: 0.75rem 2rem;
   border-radius: 100px;
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.82rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   transition: transform 0.25s, box-shadow 0.25s;
   cursor: pointer;
   border: none;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 .btn-primary {
@@ -262,7 +252,7 @@ nav a:hover::after { width: 100%; }
 }
 
 .btn-outline {
-  background: transparent;
+  background: rgba(255,255,255,0.85);
   color: var(--pink-deep);
   border: 2px solid var(--pink-deep);
 }
@@ -289,12 +279,12 @@ section {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--pink-mid);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Gravitas One', serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.15;
   color: var(--text-dark);
@@ -306,9 +296,7 @@ section {
   color: var(--pink-deep);
 }
 
-.divider {
-  margin: 1.5rem 0 2.5rem;
-}
+.divider { margin: 1.5rem 0 2.5rem; }
 
 .divider-line {
   height: 1px;
@@ -320,23 +308,81 @@ section {
   background: linear-gradient(135deg, #fff8f0 0%, #fce4ee 100%);
 }
 
-.about-grid {
+/* Headshot flanked by resumes */
+.about-headshot-row {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 5rem;
 }
 
-.about-photo-wrap { position: relative; }
+.resume-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 
-.about-photo-frame {
+.resume-side-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+.resume-side-img-wrap {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(42, 26, 34, 0.13);
+  border: 1px solid var(--pink-mid);
+}
+
+.resume-side-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.resume-side-btn {
+  padding: 0.55rem 1.4rem;
+  font-size: 0.75rem;
+}
+
+/* Center headshot */
+.about-headshot-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about-headshot-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
   border-radius: 48% 52% 60% 40% / 40% 55% 45% 60%;
   overflow: hidden;
-  aspect-ratio: 3/4;
-  box-shadow: 0 24px 60px rgba(232, 103, 154, 0.2);
+  box-shadow: 0 24px 60px rgba(232, 103, 154, 0.25);
+  border: 3px solid var(--pink-mid);
 }
 
-.about-photo-img {
+.about-headshot-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--pink-soft), var(--yellow-pale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+.about-headshot-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -344,15 +390,21 @@ section {
   display: block;
 }
 
-.about-text p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+/* Bio block below headshot row */
+.about-bio {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-bio p {
+  font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-mid);
   margin-bottom: 1.2rem;
 }
 
-.about-text p em {
+.about-bio p em {
   color: var(--pink-deep);
   font-style: italic;
 }
@@ -362,12 +414,13 @@ section {
   gap: 2.5rem;
   margin-top: 2.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .stat { text-align: center; }
 
 .stat-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Gravitas One', serif;
   font-size: 2.2rem;
   color: var(--pink-deep);
   display: block;
@@ -382,23 +435,58 @@ section {
   margin-top: 0.3rem;
 }
 
-/* ─── RESUME IMAGE DISPLAY ─── */
-.resume-image-wrap {
-  max-width: 780px;
-  margin: 0 auto 2rem;
-  border-radius: 16px;
+/* ─── PHOTO COLLAGE ─── */
+.collage-section {
+  margin-top: 5rem;
+}
+
+.collage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.collage-cell {
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(42, 26, 34, 0.15);
+  background: var(--pink-soft);
   border: 1px solid var(--pink-mid);
 }
 
-.resume-img {
+/* Tall cell spans 2 rows */
+.collage-cell.collage-tall {
+  grid-row: span 2;
+}
+
+/* Wide cell spans 2 columns */
+.collage-cell.collage-wide {
+  grid-column: span 2;
+}
+
+.collage-placeholder {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--pink-soft), var(--yellow-pale));
+}
+
+.collage-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* ─── RESUME TABS ─── */
+/* ─── RESUME ─── */
 .resume-bg {
   background: linear-gradient(160deg, #fff0f5 0%, #fffbe6 100%);
 }
@@ -411,7 +499,7 @@ section {
 }
 
 .resume-tab {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 0.85rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -439,102 +527,24 @@ section {
 .resume-panel { display: none; }
 .resume-panel.active { display: block; }
 
-/* Physical info bar */
-.resume-info-bar {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  padding: 0.75rem 1.2rem;
-  background: var(--pink-soft);
-  border-radius: 12px;
+.resume-image-wrap {
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(42, 26, 34, 0.15);
   border: 1px solid var(--pink-mid);
 }
 
-.resume-info-bar span {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-mid);
-  letter-spacing: 0.05em;
+.resume-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .resume-download {
-  margin-bottom: 2rem;
-}
-
-.resume-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3.5rem;
-}
-
-.resume-section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  margin-bottom: 1.4rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 2px solid var(--yellow-bright);
-}
-
-.resume-item { margin-bottom: 1.3rem; }
-
-.resume-role {
-  font-weight: 500;
-  color: var(--text-dark);
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.resume-role em {
-  font-style: italic;
-  color: var(--pink-deep);
-  font-weight: 400;
-}
-
-.resume-meta {
-  font-size: 0.82rem;
-  color: var(--pink-deep);
-  margin: 0.2rem 0;
-  font-style: italic;
-}
-
-.resume-detail {
-  font-size: 0.82rem;
-  color: var(--text-light);
-  line-height: 1.5;
-}
-
-.resume-badge {
-  background: var(--yellow-bright);
-  color: var(--text-dark);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 2px 9px;
-  border-radius: 100px;
-  font-style: normal;
-}
-
-.skills-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.chip {
-  background: var(--pink-soft);
-  border: 1px solid var(--pink-mid);
-  color: var(--pink-deep);
-  font-size: 0.78rem;
-  padding: 4px 14px;
-  border-radius: 100px;
-  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 /* ─── CONTACT ─── */
@@ -549,8 +559,7 @@ section {
 }
 
 .contact-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: var(--text-mid);
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -570,6 +579,7 @@ section {
   align-items: center;
   gap: 0.75rem;
   font-size: 0.92rem;
+  font-weight: 500;
   color: var(--text-mid);
   text-decoration: none;
   transition: color 0.2s;
@@ -599,7 +609,7 @@ footer {
   color: rgba(255, 255, 255, 0.4);
   text-align: center;
   padding: 2rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -617,10 +627,21 @@ footer {
 }
 
 /* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .about-headshot-row {
+    grid-template-columns: 1fr;
+  }
+  .about-headshot-wrap { order: -1; max-width: 320px; margin: 0 auto; }
+  .collage-grid { grid-template-columns: 1fr 1fr; }
+  .collage-cell.collage-tall { grid-row: span 1; }
+  .collage-cell.collage-wide { grid-column: span 2; }
+}
+
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   nav ul { gap: 1.5rem; }
-  .about-grid { grid-template-columns: 1fr; }
-  .resume-cols { grid-template-columns: 1fr; }
+  .hero-bottom-bar { padding: 1rem 1.5rem 1.5rem; }
   .name-marquee-outer { transform: rotate(-1.5deg); }
+  .collage-grid { grid-template-columns: 1fr; }
+  .collage-cell.collage-wide { grid-column: span 1; }
 }
