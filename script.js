@@ -3,6 +3,21 @@
    script.js
 ═══════════════════════════════════════════ */
 
+/* ─── DEVICE DETECTION: swap .pdf → .jpg on desktop ─── */
+// Phones keep .pdf (native rendering); desktops use .jpg
+const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent)
+  || (navigator.maxTouchPoints > 1 && /Macintosh/.test(navigator.userAgent)); // iPad with desktop UA
+
+if (!isMobile) {
+  // Replace every img src that ends in .pdf with .jpg
+  document.querySelectorAll('img[src$=".pdf"]').forEach(img => {
+    img.src = img.src.replace(/\.pdf$/i, '.jpg');
+  });
+
+  // Also fix download hrefs on <a> tags pointing to .pdf files
+  // (leave those as-is so downloads still work — only swap display images)
+}
+
 /* ─── MARQUEE NAME BUILD ─── */
 // 8 chunks (2 identical halves) for a seamless loop.
 // Animation: -50% → 0% so name scrolls right.
